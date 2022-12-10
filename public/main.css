@@ -6,6 +6,8 @@
 }
 
 html {
+  background-color: #e4e9fd;
+  min-height: 1000px;
   background-image: url("ocean.jpg");
   background-size: 100% 100%;
 }
@@ -126,4 +128,76 @@ label #cancel {
   #checkbox:checked ~ ul {
     left: 0;
   }
+}
+
+#display-box {
+  max-width: 650px;
+  margin: 50px auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#display-box li {
+  list-style-type: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#display-box li:last-child {
+  border-bottom: none;
+}
+
+#display-box input[type="text"] {
+  margin: 6px 0 8px 5px;
+  padding: 5px 0 2px 15px;
+
+  width: 85%;
+  height: 25px;
+  border: none;
+  background-color: #f1f1f1;
+  font-size: 14px;
+}
+
+#display-box input[type="date"] {
+  width: 5%;
+  height: 25px;
+  padding: 3px 3px 4px 8px;
+  background-color: #f1f1f1;
+  border: none;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  display: none;
+}
+
+#display-box input[type="date"]::-webkit-calendar-picker-indicator {
+  padding: 0;
+}
+
+#display-box input:checked + span {
+  text-decoration: line-through;
+  text-decoration-color: #3e3e3e;
+}
+
+#display-box input[type="checkbox"] {
+  margin: 20px;
+}
+
+#display-box .due-date {
+  display: inline-block;
+  width: 95%;
+  text-align: right;
+}
+
+button {
+  min-height: 50px;
+  width: 80px;
+  border-radius: 25%;
+  border-color: transparent;
+  background-color: #141318;
+  color: white;
+  font-size: 15px;
+  padding-bottom: 6px;
+  border-width: 0;
 }

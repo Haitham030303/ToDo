@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="liststyle.css" />
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
@@ -43,6 +42,7 @@
                 onchange="this.form.submit()"
               />
               <span><%=task.task%></span>
+              <span class="due-date"><%=task.dueDate%> </span>
             </form>
           </li>
           <% }) %>
@@ -52,7 +52,7 @@
             autofocus
             type="text"
             name="taskAdded"
-            placeholder="Add a task..."
+            placeholder="Add a task with a due date..."
           />
           <input type="date" name="dueDate" />
         </form>

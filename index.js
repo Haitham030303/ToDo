@@ -22,11 +22,21 @@ app.get("/", (req, res) => {
 app.post("/api/tasks", (req, res) => {
   fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
     if (err) res.sendStatus(400);
-    const task = req.body.taskAdded;
-    const obj = JSON.parse(data);
-    const id = obj.tasks.length + 1;
 
-    obj.tasks.push({ id: id, task: task });
+    const obj = JSON.parse(data);
+
+    const task = req.body.taskAdded;
+    const id = obj.tasks.length + 1;
+    let dueDate;
+
+    const date = new Date();
+    const current_date =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+    if (req.body.dueDate) dueDate = req.body.dueDate;
+    else dueDate = current_date;
+
+    obj.tasks.push({ id: id, task: task, dueDate: dueDate });
 
     fs.writeFile(
       path.join(__dirname, "db.json"),
