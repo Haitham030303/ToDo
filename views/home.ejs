@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="liststyle.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Home Page | ToDo</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">
+          <i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <img src="logo2.png" alt="Logo" />
+        <ul>
+          <li><a href="#">Tasks</a></li>
+          <li><a href="#">Important</a></li>
+          <li><a href="#">My Day</a></li>
+          <li><a href="#">Upcoming</a></li>
+          <li><a href="#">Completed</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="display-box">
+        <ul>
+          <%tasks.forEach((task) => {%>
+          <li>
+            <form action="/api/tasks/delete" method="post">
+              <input
+                type="checkbox"
+                name="checkbox"
+                value="<%=task.id%>"
+                onchange="this.form.submit()"
+              />
+              <span><%=task.task%></span>
+            </form>
+          </li>
+          <% }) %>
+        </ul>
+        <form action="/api/tasks" method="post">
+          <input
+            autofocus
+            type="text"
+            name="taskAdded"
+            placeholder="Add a task..."
+          />
+          <input type="date" name="dueDate" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  background-image: url("ocean.jpg");
+  background-size: 100% 100%;
+}
+
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+nav {
+  height: 70px;
+  background-color: #141318;
+}
+
+nav img {
+  width: 150px;
+  position: absolute;
+  top: 15px;
+  left: 9%;
+}
+
+nav ul {
+  float: right;
+  margin-right: 25px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 70px;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  /* text-transform: uppercase; */
+  padding: 5px 0;
+}
+
+nav ul li a::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 1.5px;
+  width: 100%;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s linear;
+}
+
+nav ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+label #btn,
+label #cancel {
+  color: white;
+  font-size: 30px;
+  float: right;
+  line-height: 70px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#checkbox {
+  display: none;
+}
+
+@media screen and (max-width: 1120px) {
+  nav img {
+    left: 8%;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  nav img {
+    left: 6%;
+    top: 20px;
+    width: 130px;
+  }
+
+  nav ul li a {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  label #btn {
+    display: block;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #141318;
+    top: 70px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  #checkbox:checked ~ ul {
+    left: 0;
+  }
+}

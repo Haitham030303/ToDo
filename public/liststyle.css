@@ -1,0 +1,74 @@
+html {
+  background-color: #e4e9fd;
+  min-height: 1000px;
+}
+
+#display-box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#display-box li {
+  list-style-type: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#display-box li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#display-box input[type="text"] {
+  margin: 0 0 5px 5px;
+  padding: 5px 0 5px 15px;
+
+  width: 85%;
+  height: 25px;
+  border: none;
+  background-color: #f1f1f1;
+  font-size: 14px;
+}
+
+#display-box input[type="date"] {
+  width: 5%;
+  height: 25px;
+  padding: 5px;
+  padding-top: 1px;
+  padding-bottom: 8px;
+  margin-top: 15px;
+  background-color: #f1f1f1;
+  border: none;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  display: none;
+}
+
+#display-box input[type="date"]::-webkit-calendar-picker-indicator {
+}
+
+input:checked + span {
+  text-decoration: line-through;
+  text-decoration-color: #3e3e3e;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+button {
+  min-height: 50px;
+  width: 80px;
+  border-radius: 25%;
+  border-color: transparent;
+  background-color: #141318;
+  color: white;
+  font-size: 15px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
