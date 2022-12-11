@@ -42,7 +42,15 @@
                 onchange="this.form.submit()"
               />
               <span><%=task.task%></span>
-              <span class="due-date"><%=task.dueDate%> </span>
+              <% if (task.dueDate === new
+              Date().toJSON().slice(0,10).replace(/-/g,'-')) { %>
+              <span class="due-date">Today</span>
+              <%} else if (task.dueDate === new Date(new Date().setDate(new
+              Date().getDate() + 1)).toJSON().slice(0,10).replace(/-/g,'-')){ %>
+              <span class="due-date">Tomorrow</span>
+              <%} else {%>
+              <span class="due-date"><%=task.dueDate%></span>
+              <% } %>
             </form>
           </li>
           <% }) %>
@@ -55,6 +63,7 @@
             placeholder="Add a task with a due date..."
           />
           <input type="date" name="dueDate" />
+          <input type="submit" value="+" />
         </form>
       </div>
     </main>

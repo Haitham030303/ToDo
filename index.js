@@ -60,8 +60,8 @@ app.post("/api/tasks/delete", (req, res) => {
     if (!task) res.status(404).send("Couldn't find task to delete!");
 
     const index = obj.tasks.indexOf(task);
-    obj.tasks.splice(index, 1);
-
+    const deletedTask = obj.tasks.splice(index, 1);
+    obj.completed.push(deletedTask[0]);
     fs.writeFile(
       path.join(__dirname, "db.json"),
       JSON.stringify(obj),
