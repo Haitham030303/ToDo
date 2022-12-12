@@ -216,6 +216,16 @@ input[type="date"]::-webkit-datetime-edit {
   text-align: right;
   font-size: 12px;
 }
+table th h2 {
+  padding-left: 15rem;
+  display: inline;
+  text-align: center;
+}
+table .completed {
+  text-decoration: line-through;
+  color: #6e6e6e;
+  padding: 20px;
+}
 
 button {
   min-height: 50px;

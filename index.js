@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public/img")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -31,7 +32,11 @@ app.get("/today", (req, res) => {
   fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
     if (err) res.sendStatus(400);
     const obj = JSON.parse(data);
-    res.render("today", { tasks: obj.completed });
+    const todayTasks = obj.tasks.filter(
+      (task) =>
+        task.dueDate === new Date().toJSON().slice(0, 10).replace(/-/g, "-")
+    );
+    res.render("today", { tasks: todayTasks });
   });
 });
 
@@ -65,7 +70,7 @@ app.post("/api/tasks", (req, res) => {
   res.redirect("/");
 });
 
-app.post("/api/tasks/delete", (req, res) => {
+app.post("/api/tasks/delete/:id", (req, res) => {
   const taskId = req.body.checkbox;
   fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
     if (err) res.status(400).send(err.message);
@@ -83,7 +88,8 @@ app.post("/api/tasks/delete", (req, res) => {
       JSON.stringify(obj),
       (err) => {
         if (err) res.status(400).send(err.message);
-        res.redirect("/");
+        if (req.params.id === "1") res.redirect("/");
+        else res.redirect("/today");
       }
     );
   });
