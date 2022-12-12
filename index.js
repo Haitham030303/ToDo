@@ -19,6 +19,22 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/completed", (req, res) => {
+  fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
+    if (err) res.sendStatus(400);
+    const obj = JSON.parse(data);
+    res.render("completed", { tasks: obj.completed });
+  });
+});
+
+app.get("/today", (req, res) => {
+  fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
+    if (err) res.sendStatus(400);
+    const obj = JSON.parse(data);
+    res.render("today", { tasks: obj.completed });
+  });
+});
+
 app.post("/api/tasks", (req, res) => {
   fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
     if (err) res.sendStatus(400);

@@ -9,19 +9,6 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      html {
-        background-color: #e4e9fd;
-        min-height: 1000px;
-        background-image: url("ocean.jpg");
-        background-size: 100vw 100vh;
-        background-attachment: fixed;
-      }
-
-      #display-box {
-        background-color: rgba(255, 255, 255, 0.6);
-      }
-    </style>
     <title>Home Page | ToDo</title>
   </head>
   <body>
@@ -35,42 +22,28 @@
         <img src="logo2.png" alt="Logo" />
         <ul>
           <li><a href="#">Tasks</a></li>
-          <li><a href="/today">My Day</a></li>
-          <li><a href="/completed">Completed</a></li>
+          <li><a href="#">Important</a></li>
+          <li><a href="#">My Day</a></li>
+          <li><a href="#">Upcoming</a></li>
+          <li><a href="#">Completed</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <div id="display-box">
-        <% if (tasks.length !== 0) { %>
-        <center>
-          <h2><b>Tasks</b></h2>
-        </center>
-        <% } %>
         <ul>
-          <%tasks.forEach((task) => {%>
           <li>
             <form action="/api/tasks/delete" method="post">
               <input
                 type="checkbox"
                 name="checkbox"
                 value="<%=task.id%>"
-                class="task-checkbox"
                 onchange="this.form.submit()"
               />
-              <span><%=task.task%></span>
-              <% if (task.dueDate === new
-              Date().toJSON().slice(0,10).replace(/-/g,'-')) { %>
               <span class="due-date">Today</span>
-              <%} else if (task.dueDate === new Date(new Date().setDate(new
-              Date().getDate() + 1)).toJSON().slice(0,10).replace(/-/g,'-')){ %>
               <span class="due-date">Tomorrow</span>
-              <%} else {%>
-              <span class="due-date"><%=task.dueDate%></span>
-              <% } %>
             </form>
           </li>
-          <% }) %>
         </ul>
         <form action="/api/tasks" method="post">
           <input

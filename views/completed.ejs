@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      html {
+        background-color: #e4e9fd;
+        min-height: 1000px;
+        background-image: url("books.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+    <title>Completed | ToDo</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">
+          <i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <img src="logo2.png" alt="Logo" />
+        <ul>
+          <li><a href="/">Tasks</a></li>
+          <li><a href="/today">My Day</a></li>
+          <li><a href="#">Completed</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="display-box">
+        <table>
+          <thead>
+            <th><h2>Completed</h2></th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

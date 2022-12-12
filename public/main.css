@@ -13,6 +13,11 @@ html {
   background-attachment: fixed;
 }
 
+h2 {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
 body {
   font-family: "Poppins", Helvetica, sans-serif;
   font-size: 15px;
@@ -137,7 +142,7 @@ label #cancel {
   margin: 50px auto;
   font-size: 17px;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
