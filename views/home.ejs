@@ -10,6 +10,7 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <noscript>This browser doesn't support javascript!</noscript>
     <style>
       html {
         background-color: #e4e9fd;
@@ -76,6 +77,8 @@
             type="text"
             name="taskAdded"
             placeholder="Add a task with a due date..."
+            required
+            maxlength="100"
           />
           <input type="date" name="dueDate" />
           <input type="submit" value="+" class="taskadd" />

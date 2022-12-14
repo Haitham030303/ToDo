@@ -67,8 +67,10 @@ app.post("/api/tasks", (req, res) => {
     let dueDate;
 
     const date = new Date();
-    const current_date =
-      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    const current_date = new Date(new Date().setDate(new Date().getDate()))
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "-");
 
     if (req.body.dueDate) dueDate = req.body.dueDate;
     else dueDate = current_date;
