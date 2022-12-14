@@ -28,6 +28,22 @@ app.get("/completed", (req, res) => {
   });
 });
 
+app.post("/completed/delete", (req, res) => {
+  fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
+    if (err) res.sendStatus(400);
+    const obj = JSON.parse(data);
+    obj.completed = [];
+    fs.writeFile(
+      path.join(__dirname, "db.json"),
+      JSON.stringify(obj),
+      (err) => {
+        if (err) res.sendStatus(400);
+        res.redirect("/completed");
+      }
+    );
+  });
+});
+
 app.get("/today", (req, res) => {
   fs.readFile(path.join(__dirname, "db.json"), (err, data) => {
     if (err) res.sendStatus(400);

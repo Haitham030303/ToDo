@@ -9,6 +9,7 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <script src="main.js" defer></script>
     <style>
       html {
         background-color: #e4e9fd;
@@ -41,21 +42,28 @@
       </nav>
     </header>
     <main>
+      <button class="btn" id="display">Display</button>
       <div id="display-box">
+        <% if (tasks.length !== 0) { %>
         <table>
           <thead>
-            <% if (tasks.length !== 0) { %>
             <tr>
               <th><h2>Completed</h2></th>
             </tr>
-            <% } %> <% tasks.forEach(task => { %>
+          </thead>
+          <tbody>
+            <% tasks.forEach(task => { %>
             <tr>
-              <td class="completed"><%= task.task %></td>
+              <td class="completed" colspan="2"><%= task.task %></td>
             </tr>
             <% }) %>
-          </thead>
-          <tbody></tbody>
+          </tbody>
         </table>
+        <button class="btn" id="hide">Hide</button>
+        <form class="clear-form" action="/completed/delete" method="post">
+          <button type="submit" class="btn">Clear</button>
+        </form>
+        <% } %>
       </div>
     </main>
   </body>
