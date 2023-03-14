@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
-    <noscript>This page doesn't javascript!</noscript>
-
+    
     <script src="main.js" defer></script>
     <style>
       html {
@@ -24,18 +23,18 @@
         background-color: rgba(255, 255, 255, 0.8);
         border: none;
       }
-    </style>
+      </style>
     <title>Completed | ToDo</title>
   </head>
   <body>
     <header>
       <nav>
-        <input type="checkbox" id="checkbox" />
+        <input type="checkbox" id="checkbox">
         <label for="checkbox">
           <i class="fas fa-bars" id="btn"></i>
           <i class="fas fa-times" id="cancel"></i>
         </label>
-        <img src="logo.png" alt="Logo" />
+        <img src="logo.png" alt="Logo">
         <ul>
           <li><a href="/">Tasks</a></li>
           <li><a href="/today">My Day</a></li>
@@ -44,6 +43,7 @@
       </nav>
     </header>
     <main>
+      <noscript>This page doesn't javascript!</noscript>
       <button class="btn" id="display">Display</button>
       <div id="display-box">
         <% if (tasks.length !== 0) { %>

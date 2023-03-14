@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
-    <noscript>This page doesn't javascript!</noscript>
-
+    
     <style>
       html {
         background-color: #e4e9fd;
@@ -19,27 +18,27 @@
         background-size: 100vw 100vh;
         background-attachment: fixed;
       }
-
+      
       #display-box {
         background-color: rgba(255, 255, 255, 0.75);
         border: none;
       }
-
+      
       #display-box li:last-child {
         border-bottom: none;
       }
-    </style>
+      </style>
     <title>My Day | ToDo</title>
   </head>
   <body>
     <header>
       <nav>
-        <input type="checkbox" id="checkbox" />
+        <input type="checkbox" id="checkbox">
         <label for="checkbox">
           <i class="fas fa-bars" id="btn"></i>
           <i class="fas fa-times" id="cancel"></i>
         </label>
-        <img src="logo.png" alt="Logo" />
+        <img src="logo.png" alt="Logo">
         <ul>
           <li><a href="/">Tasks</a></li>
           <li><a href="#">My Day</a></li>
@@ -48,6 +47,7 @@
       </nav>
     </header>
     <main>
+      <noscript>This page doesn't javascript!</noscript>
       <div id="display-box">
         <% if (tasks.length !== 0) { %>
         <h2><b>My Day</b></h2>
@@ -62,7 +62,7 @@
                 value="<%=task.id%>"
                 class="task-checkbox"
                 onchange="this.form.submit()"
-              />
+              >
               <span><%=task.task%></span>
             </form>
           </li>
